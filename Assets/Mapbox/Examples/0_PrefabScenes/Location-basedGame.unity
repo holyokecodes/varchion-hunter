@@ -805,7 +805,7 @@ PrefabInstance:
     - target: {fileID: 224835413515161394, guid: 98be219873e6d4dffb5949746f515a33,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 209.5131
+      value: 181.57803
       objectReference: {fileID: 0}
     - target: {fileID: 224835413515161394, guid: 98be219873e6d4dffb5949746f515a33,
         type: 3}
@@ -815,12 +815,12 @@ PrefabInstance:
     - target: {fileID: 224835413515161394, guid: 98be219873e6d4dffb5949746f515a33,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -114.75655
+      value: -100.78902
       objectReference: {fileID: 0}
     - target: {fileID: 224857786874416376, guid: 98be219873e6d4dffb5949746f515a33,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 229.5131
+      value: 201.57803
       objectReference: {fileID: 0}
     - target: {fileID: 224857786874416376, guid: 98be219873e6d4dffb5949746f515a33,
         type: 3}
@@ -855,7 +855,7 @@ PrefabInstance:
     - target: {fileID: 224907993215804030, guid: 98be219873e6d4dffb5949746f515a33,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.012720867
+      value: 0.007828339
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98be219873e6d4dffb5949746f515a33, type: 3}
@@ -2163,8 +2163,9 @@ GameObject:
   - component: {fileID: 1755854342}
   - component: {fileID: 1755854341}
   - component: {fileID: 1755854340}
+  - component: {fileID: 1755854343}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Compass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2258,7 +2259,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1755854340}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1755854343}
+        m_MethodName: Toggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &1755854342
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2267,6 +2279,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755854338}
   m_CullTransparentMesh: 0
+--- !u!114 &1755854343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755854338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5079aa46705b5421cbc36ac499aa0f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 470105459}
 --- !u!1 &1917156552
 GameObject:
   m_ObjectHideFlags: 0
