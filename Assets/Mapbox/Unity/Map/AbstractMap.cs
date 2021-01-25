@@ -38,7 +38,7 @@ namespace Mapbox.Unity.Map
 		private List<UnwrappedTileId> tilesToProcess;
 
 		protected AbstractMapVisualizer _mapVisualizer;
-		protected float _unityTileSize = 1;
+		protected float _unityTileSize = 1f;
 		protected bool _worldHeightFixed = false;
 		protected MapboxAccess _fileSource;
 		protected int _initialZoom;
