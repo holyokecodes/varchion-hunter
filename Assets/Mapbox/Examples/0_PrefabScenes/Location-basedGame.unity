@@ -2497,7 +2497,6 @@ GameObject:
   - component: {fileID: 114086565779768673}
   - component: {fileID: 1094528993850012}
   - component: {fileID: 1094528993850013}
-  - component: {fileID: 1094528993850014}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -2533,26 +2532,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1094528993850011}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 756a01a914208439d8d2fc8dcd68b229, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c699b8e1864b4b248acb7a04ede9480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cbtpOptions:
-    camera: {fileID: 8030623}
-    visibleBuffer: 0
-    disposeBuffer: 0
---- !u!114 &1094528993850014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1094528993850011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 499287b0d5b094dadaaa68aec5cd8c46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  map: {fileID: 114105500982122791}
+  _panSpeed: 0
+  _zoomSpeed: 0.25
+  _referenceCamera: {fileID: 8030623}
+  _mapManager: {fileID: 114105500982122791}
+  _useDegreeMethod: 0
 --- !u!1 &1150654721006899
 GameObject:
   m_ObjectHideFlags: 0
