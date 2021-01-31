@@ -2496,6 +2496,8 @@ GameObject:
   - component: {fileID: 114105500982122791}
   - component: {fileID: 114086565779768673}
   - component: {fileID: 1094528993850012}
+  - component: {fileID: 1094528993850013}
+  - component: {fileID: 1094528993850014}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -2522,6 +2524,35 @@ MonoBehaviour:
   _spawnScale: 4
   _markerPrefab: {fileID: 9018683081751946580, guid: f42a5093a60264695bdb5d057a592f88,
     type: 3}
+--- !u!114 &1094528993850013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094528993850011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 756a01a914208439d8d2fc8dcd68b229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cbtpOptions:
+    camera: {fileID: 8030623}
+    visibleBuffer: 0
+    disposeBuffer: 0
+--- !u!114 &1094528993850014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094528993850011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 499287b0d5b094dadaaa68aec5cd8c46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  map: {fileID: 114105500982122791}
 --- !u!1 &1150654721006899
 GameObject:
   m_ObjectHideFlags: 0
@@ -2788,7 +2819,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094528993850011}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3023,7 +3054,7 @@ MonoBehaviour:
   _options:
     locationOptions:
       latitudeLongitude: 42.319, -72.6306
-      zoom: 19
+      zoom: 18
     extentOptions:
       extentType: 0
       defaultExtents:
@@ -3044,7 +3075,7 @@ MonoBehaviour:
       placementType: 1
       snapMapToZero: 0
     scalingOptions:
-      scalingType: 1
+      scalingType: 0
       unityTileSize: 100
     loadingTexture: {fileID: 2800000, guid: e2896a92727704803a9c422b043eae89, type: 3}
     tileMaterial: {fileID: 2100000, guid: b9f23e9bce724fa4daac57ecded470b8, type: 2}
@@ -3055,7 +3086,7 @@ MonoBehaviour:
       sourceOptions:
         isActive: 1
         layerSource:
-          Name: Streets
+          Name: Dark
           Id: mapbox://styles/mapbox/dark-v9
           Modified: 
           UserName: 
@@ -3097,25 +3128,19 @@ MonoBehaviour:
         - admin
         - aeroway
         - airport_label
-        - barrier_line
         - building
-        - country_label
         - housenum_label
         - landuse
         - landuse_overlay
-        - marine_label
         - motorway_junction
-        - mountain_peak_label
+        - natural_label
         - place_label
         - poi_label
-        - rail_station_label
         - road
-        - road_label
-        - state_label
+        - structure
+        - transit_stop_label
         - water
-        - water_label
         - waterway
-        - waterway_label
       _sourceType: -2
       sourceOptions:
         isActive: 1
