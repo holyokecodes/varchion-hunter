@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: 'FLL Team 27320 '
+  companyName: PowerScare
   productName: FLL Game App
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -129,7 +129,8 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: 0.2.0
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 431902232768184747, guid: 9c4b83c7512994a0186b3222212f26c5, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
