@@ -28,11 +28,11 @@ public class LoadScene : MonoBehaviour
     public void Start()
     {
         DontDestroyOnLoad(gameObject);
-        GameObject[] loadings = GameObject.FindGameObjectsWithTag("IntroLoader");
-        if (loadings.Length < 2)
-            DontDestroyOnLoad(gameObject);
-        else
-            Destroy(gameObject);
+        //GameObject[] loadings = GameObject.FindGameObjectsWithTag("IntroLoader");
+        //if (loadings.Length < 2)
+        //    DontDestroyOnLoad(gameObject);
+        //else
+        //    Destroy(gameObject);
     }
 
     public void Update()
