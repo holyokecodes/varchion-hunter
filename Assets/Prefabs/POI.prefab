@@ -371,8 +371,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa4e6f37cf2a24bf0b5b5feece8a44d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScaleSpeed: 0.05
-  maxScale: 1
+  ScaleSpeed: 0.01
+  maxScale: 0.2
   rotateSpeed: 1
 --- !u!1 &8208954316395280992
 GameObject:

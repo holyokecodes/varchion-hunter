@@ -11,6 +11,7 @@ public class TargetAnimation : MonoBehaviour
     public float rotateSpeed = 1;
 
     bool goingUp = true;
+
     public void FixedUpdate()
     {
         transform.Rotate(0, 0, rotateSpeed);
