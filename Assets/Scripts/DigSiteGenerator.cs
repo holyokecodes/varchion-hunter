@@ -4,20 +4,40 @@ using UnityEngine;
 using Mapbox.Unity.Location;
 using Mapbox.Unity.Utilities;
 using Mapbox.Examples;
+using Mapbox.Utils;
+using Mapbox.Unity.Map;
 
 public class DigSiteGenerator : MonoBehaviour
 {
-    public int seed = 50;
-    int digSiteNumber;
-    bool itemPickedUp = false;
+    [SerializeField]
+    AbstractMap _map; //The map
 
-    public SpawnOnMap spawnOnMap;
+    [SerializeField]
+    Vector2d[] _locations;
 
-    public digSite[] digSites = new digSite[20];
+    [SerializeField]
+    float _spawnScale = 4f; //The scale at which to spawn the prefabs
+
+    [SerializeField]
+    GameObject _markerPrefab; // The actuall prefab
+
+    List<GameObject> _spawnedObjects; //The objects that have been spawned
+
+    public int seed = 50; //The seed for the reandom jnumber generator
+    int digSiteNumber; //The index of the generated digsite.
+    bool itemPickedUp = false; //True when an item has been picked up.
+
+    public digSite[] digSites = new digSite[20]; //The digsites
 
     private AbstractLocationProvider _locationProvider = null;
+
+    bool hasGeneratedPoints = false;
+
     void Start()
     {
+
+        _locations = new Vector2d[20];
+
         Random.InitState(seed);
 
         if (null == _locationProvider)
@@ -25,40 +45,70 @@ public class DigSiteGenerator : MonoBehaviour
             _locationProvider = LocationProviderFactory.Instance.DefaultLocationProvider as AbstractLocationProvider;
         }
 
-        for (int i = 0; i < 20; i++)
+        _spawnedObjects = new List<GameObject>();
+        for (int i = 0; i < _locations.Length; i++)
         {
-            GenerateNewDigSite(i);
+            var instance = Instantiate(_markerPrefab);
+            instance.transform.localPosition = _map.GeoToWorldPosition(_locations[i], true);
+            instance.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
+            _spawnedObjects.Add(instance);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        Location currLoc = _locationProvider.CurrentLocation;
+
+        if (!hasGeneratedPoints && !currLoc.LatitudeLongitude.Equals(Vector2d.zero) && currLoc.IsLocationServiceEnabled)
+        {
+            GenerateTheDigSites();
+            hasGeneratedPoints = true;
+        }
+
         if (itemPickedUp)
         {
             GenerateNewDigSite(digSiteNumber);
             itemPickedUp = false;
         }
+
+        int count = _spawnedObjects.Count;
+        for (int i = 0; i < count; i++)
+        {
+            var spawnedObject = _spawnedObjects[i];
+            var location = _locations[i];
+            spawnedObject.transform.localPosition = _map.GeoToWorldPosition(location, true);
+            spawnedObject.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
+        }
     }
 
-    void GenerateNewDigSite(int digSiteNumber)
+    public void GenerateTheDigSites()
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            GenerateNewDigSite(i);
+        }
+    }
+
+    public void GenerateNewDigSite(int digSiteNumber)
     {
         Location currLoc = _locationProvider.CurrentLocation;
-         //x is lattitude, y is logitude
 
-        float currentLat = (float) currLoc.LatitudeLongitude.x;
-        float currentLong = (float) currLoc.LatitudeLongitude.y;
+        float currentLat = (float) currLoc.LatitudeLongitude.y;
+        float currentLong = (float) currLoc.LatitudeLongitude.x;
 
-        float distance = Random.Range(0, 0.01f);
-        float heading = Random.Range(0, 360);
+        Vector2d latLongChange = new Vector2d(Random.Range(0, 300f), Random.Range(0, 300f));
+        float latChange = (float) latLongChange.x;
+        float longChange = (float) latLongChange.y;
 
-        float latChange = distance * Mathf.Cos(heading);
-        float longChange = distance * Mathf.Sin(heading);
+        float latitude =  (float) Conversions.LatLonToMeters(new Vector2d(currentLat, currentLong)).x + latChange;
+        float longitude = (float) Conversions.LatLonToMeters(new Vector2d(currentLat, currentLong)).y + longChange;
 
-        float latitude = currentLat + latChange;
-        float longitude = currentLong + longChange;
+        latitude = (float)Conversions.MetersToLatLon(new Vector2d(latitude, longitude)).y;
+        longitude = (float)Conversions.MetersToLatLon(new Vector2d(latitude, longitude)).x;
 
-        
+
+
 
         string treasure = "";
 
@@ -82,9 +132,11 @@ public class DigSiteGenerator : MonoBehaviour
         }
         digSite currectDigSite = new digSite();
 
-        currectDigSite.latLong = new Vector2(latitude, longitude);
+        currectDigSite.latLong = new Vector2d(latitude, longitude);
         currectDigSite.treasure = treasure;
 
-        digSites[digSiteNumber] = new digSite(); //replace old data with new data (would include lat and long)
+        _locations[digSiteNumber] = new Vector2d(latitude, longitude);
+
+        digSites[digSiteNumber] = new digSite();
     }
 }
