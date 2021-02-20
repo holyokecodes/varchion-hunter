@@ -110,7 +110,7 @@ public class DigSiteGenerator : MonoBehaviour
 
 
 
-        string treasure = "";
+        string treasure = "Default";
 
         switch (Random.Range(0, 5))
         {
@@ -137,6 +137,6 @@ public class DigSiteGenerator : MonoBehaviour
 
         _locations[digSiteNumber] = new Vector2d(latitude, longitude);
 
-        digSites[digSiteNumber] = new digSite();
+        digSites[digSiteNumber] = currectDigSite;
     }
 }
