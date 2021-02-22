@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LoadTreasure : MonoBehaviour
 {
@@ -11,9 +12,9 @@ public class LoadTreasure : MonoBehaviour
     public GameObject electroplatedSilver;
 
     public GameObject treasureObj;
+    public Text XPText;
 
     public CanvasGroup canvasGroup;
-
     public float time;
     public bool hasBeenPickedUp = false;
 
@@ -46,8 +47,36 @@ public class LoadTreasure : MonoBehaviour
         if (time >= 2){StartCoroutine(FadeLoadingScreen(0, 1));}
     }
 
+    int add;
+    int XP;
+    /**public string XPOp(int opType, int Change){
+        if (opType == 0){
+            AmountOfXP += Change;
+            return "Added" + AmountOfXP;
+        }else{
+            return AmountOfXP.ToString();
+        }
+    }**/
     public void CollectTreasure()
     {
+        if (PlayerPrefs.GetString("treasure") == "Sword")
+        {
+            add = 1500;
+        }
+        else if (PlayerPrefs.GetString("treasure") == "Bust")
+        {
+            add = 800;
+        }
+        else if (PlayerPrefs.GetString("treasure") == "Weird peice of electroplated silver")
+        {
+            add = 1700;
+        }
+        else
+        {
+            add = 42;
+            Debug.Log("Weird thing happened(LoadTreasure, CollectTreasure): Unknown Treasure");
+        }
+        XP += add;
         Destroy(treasureObj);
         StartCoroutine(FadeLoadingScreen(1, 1));
         hasBeenPickedUp = true;
@@ -55,6 +84,7 @@ public class LoadTreasure : MonoBehaviour
 
     IEnumerator FadeLoadingScreen(float targetValue, float duration)
     {
+        XPText.text = "You have gained" + add.ToString() + "XP";
         float startValue = canvasGroup.alpha;
         float time = 0;
 
