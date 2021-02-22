@@ -1,11 +1,12 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using System.Runtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LoadScene : MonoBehaviour
 {
+    
     public GameObject loadingScreen;
     public string sceneToLoad;
     public CanvasGroup canvasGroup;
@@ -25,6 +26,8 @@ public class LoadScene : MonoBehaviour
 
     bool loadHasEnded = false;
 
+    Random rng = new Random();
+
     public void Start()
     {
         DontDestroyOnLoad(gameObject);
@@ -37,6 +40,9 @@ public class LoadScene : MonoBehaviour
 
     public void Update()
     {
+        int rng = random.Next(50); 
+        PlayerPrefs.SetString("treasure", rng == 0 ? "Sword" :
+                                            rng == 1 ? "Bust" : "Weird peice of electroplated silver");
         if (SceneManager.GetActiveScene().name == destroyScene && loadHasEnded)
         {
             Destroy(gameObject);

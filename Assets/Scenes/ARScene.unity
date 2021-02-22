@@ -433,7 +433,7 @@ MonoBehaviour:
   electroplatedSilver: {fileID: 3031042188248953201, guid: 77095f1e954c9464ab2d7835e5853a44,
     type: 3}
   treasureObj: {fileID: 0}
-  textXp: {fileID: 1795909364}
+  XPText: {fileID: 1795909366}
   canvasGroup: {fileID: 155275555}
   time: 0
   hasBeenPickedUp: 0

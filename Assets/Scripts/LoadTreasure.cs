@@ -21,6 +21,7 @@ public class LoadTreasure : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         string treasure = PlayerPrefs.GetString("treasure");
 
         if ( treasure == "Sword")
@@ -48,7 +49,6 @@ public class LoadTreasure : MonoBehaviour
     }
 
     int add;
-    int XP;
     /**public string XPOp(int opType, int Change){
         if (opType == 0){
             AmountOfXP += Change;
@@ -57,26 +57,37 @@ public class LoadTreasure : MonoBehaviour
             return AmountOfXP.ToString();
         }
     }**/
+
+    public void AddToPref(string PrefName, int add){
+        PlayerPrefs.SetString(PrefName, PlayerPrefs.GetString(PrefName)+1);
+    }
     public void CollectTreasure()
     {
+        // TODO: Intgrate into function.
         if (PlayerPrefs.GetString("treasure") == "Sword")
         {
             add = 1500;
+            AddToPref("ItemSword", 1);
+            Debug.Log("Added one to ItemSword.");
         }
         else if (PlayerPrefs.GetString("treasure") == "Bust")
         {
             add = 800;
+            AddToPref("ItemBust", 1);
+            Debug.Log("Added one to ItemBust.");
         }
         else if (PlayerPrefs.GetString("treasure") == "Weird peice of electroplated silver")
         {
             add = 1700;
+            AddToPref("ItemBust", 1);
+            Debug.Log("Added one to ItemBust.");
         }
         else
         {
             add = 42;
             Debug.Log("Weird thing happened(LoadTreasure, CollectTreasure): Unknown Treasure");
         }
-        XP += add;
+        AddToPref("XP", add);
         Destroy(treasureObj);
         StartCoroutine(FadeLoadingScreen(1, 1));
         hasBeenPickedUp = true;
@@ -84,7 +95,7 @@ public class LoadTreasure : MonoBehaviour
 
     IEnumerator FadeLoadingScreen(float targetValue, float duration)
     {
-        XPText.text = "You have gained" + add.ToString() + "XP";
+        XPText.text = "You have gained " + add.ToString() + " XP";
         float startValue = canvasGroup.alpha;
         float time = 0;
 
