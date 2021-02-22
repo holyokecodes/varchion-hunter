@@ -2912,6 +2912,7 @@ MonoBehaviour:
   _markerPrefab: {fileID: 9018683081751946580, guid: f42a5093a60264695bdb5d057a592f88,
     type: 3}
   seed: 50
+  distanceChecker: {fileID: 1094528993850015}
 --- !u!114 &1094528993850015
 MonoBehaviour:
   m_ObjectHideFlags: 0

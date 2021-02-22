@@ -56,6 +56,8 @@ public class LoadTreasure : MonoBehaviour
         PlayerPrefs.SetInt("xp", PlayerPrefs.GetInt("xp")+xpGain);
         XPText.text = xpGain + " xp gained!";
 
+        PlayerPrefs.SetInt("collected", 1);
+
         Destroy(treasureObj);
         StartCoroutine(FadeLoadingScreen(1, 1));
         hasBeenPickedUp = true;

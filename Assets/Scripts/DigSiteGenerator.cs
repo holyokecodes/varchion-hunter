@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mapbox.Unity.Location;
 using Mapbox.Unity.Utilities;
-using Mapbox.Examples;
 using Mapbox.Utils;
 using Mapbox.Unity.Map;
 
@@ -25,13 +24,14 @@ public class DigSiteGenerator : MonoBehaviour
 
     public int seed = 50; //The seed for the reandom jnumber generator
     int digSiteNumber; //The index of the generated digsite.
-    bool itemPickedUp = false; //True when an item has been picked up.
 
     public digSite[] digSites = new digSite[20]; //The digsites
 
     private AbstractLocationProvider _locationProvider = null;
 
     bool hasGeneratedPoints = false;
+
+    public DistanceChecker distanceChecker;
 
     void Start()
     {
@@ -66,11 +66,17 @@ public class DigSiteGenerator : MonoBehaviour
             hasGeneratedPoints = true;
         }
 
-        if (itemPickedUp)
+        /*if (PlayerPrefs.GetInt("collected") == 1)
         {
-            GenerateNewDigSite(digSiteNumber);
-            itemPickedUp = false;
-        }
+            digSite foundDigSite = new digSite();
+            print("The nearest digsite has treasure " + distanceChecker.minTreasure);
+            foundDigSite.latLong = distanceChecker.minPos;
+            foundDigSite.treasure = distanceChecker.minTreasure;
+            print("Generating a dig site at index " + System.Array.IndexOf(digSites, foundDigSite));
+            GenerateNewDigSite(System.Array.IndexOf(digSites, foundDigSite));
+            print("Generated a new dig site!");
+            PlayerPrefs.SetInt("collected", 0);
+        }*/
 
         int count = _spawnedObjects.Count;
         for (int i = 0; i < count; i++)
