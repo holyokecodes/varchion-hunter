@@ -26,23 +26,13 @@ public class LoadScene : MonoBehaviour
 
     bool loadHasEnded = false;
 
-    Random rng = new Random();
-
     public void Start()
     {
         DontDestroyOnLoad(gameObject);
-        //GameObject[] loadings = GameObject.FindGameObjectsWithTag("IntroLoader");
-        //if (loadings.Length < 2)
-        //    DontDestroyOnLoad(gameObject);
-        //else
-        //    Destroy(gameObject);
     }
 
     public void Update()
     {
-        int rng = random.Next(50); 
-        PlayerPrefs.SetString("treasure", rng == 0 ? "Sword" :
-                                            rng == 1 ? "Bust" : "Weird peice of electroplated silver");
         if (SceneManager.GetActiveScene().name == destroyScene && loadHasEnded)
         {
             Destroy(gameObject);

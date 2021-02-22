@@ -1,20 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class XP : MonoBehaviour
 {
-    private int AmountOfXP = 0;
+    public Text xpText;
+
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        xpText.text = PlayerPrefs.GetInt("xp") + " XP";
     }
     
 }

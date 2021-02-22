@@ -45,7 +45,7 @@ public class DistanceChecker : MonoBehaviour
             }
         }
 
-        if (min < 0.0002)
+        if (min < 0.0005)
         {
             ARButton.SetActive(true);
             PlayerPrefs.SetString("treasure", minTreasure);

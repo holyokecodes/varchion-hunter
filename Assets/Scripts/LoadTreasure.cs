@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class LoadTreasure : MonoBehaviour
 {
-    public GameObject sword;
-    public GameObject knife;
-    public GameObject bust;
-    public GameObject potteryShard;
-    public GameObject electroplatedSilver;
+    public GameObject swordPrefab;
+    public GameObject knifePrefab;
+    public GameObject bustPrefab;
+    public GameObject potteryShardPrefab;
+    public GameObject electroplatedSilverPrefab;
 
     public GameObject treasureObj;
     public Text XPText;
@@ -18,27 +18,30 @@ public class LoadTreasure : MonoBehaviour
     public float time;
     public bool hasBeenPickedUp = false;
 
+    public int xpGain = 10;
+
     // Start is called before the first frame update
     void Start()
     {
-        
         string treasure = PlayerPrefs.GetString("treasure");
+
+        // REALLY IMPORTANT NOTE! if you want different values of XP for different treasures, set them here with the code "xpGain = [new value]"
 
         if ( treasure == "Sword")
         {
-            treasureObj = Instantiate(sword, new Vector3(0, 0, 2), Quaternion.identity);
+            treasureObj = Instantiate(swordPrefab, new Vector3(0, 0, 2), Quaternion.identity);
         } else if (treasure == "Knife")
         {
-            treasureObj = Instantiate(knife, new Vector3(0, 0, 2), Quaternion.identity);
+            treasureObj = Instantiate(knifePrefab, new Vector3(0, 0, 2), Quaternion.identity);
         } else if (treasure == "Bust")
         {
-            treasureObj = Instantiate(bust, new Vector3(0, 0, 2), Quaternion.identity);
+            treasureObj = Instantiate(bustPrefab, new Vector3(0, 0, 2), Quaternion.identity);
         } else if (treasure == "Pottery Shard")
         {
-            treasureObj = Instantiate(potteryShard, new Vector3(0, 0, 2), Quaternion.identity);
+            treasureObj = Instantiate(potteryShardPrefab, new Vector3(0, 0, 2), Quaternion.identity);
         } else if (treasure == "Weird peice of electroplated silver")
         {
-            treasureObj = Instantiate(electroplatedSilver, new Vector3(0, 0, 2), Quaternion.identity);
+            treasureObj = Instantiate(electroplatedSilverPrefab, new Vector3(0, 0, 2), Quaternion.identity);
         }
     }
 
@@ -48,46 +51,11 @@ public class LoadTreasure : MonoBehaviour
         if (time >= 2){StartCoroutine(FadeLoadingScreen(0, 1));}
     }
 
-    int add;
-    /**public string XPOp(int opType, int Change){
-        if (opType == 0){
-            AmountOfXP += Change;
-            return "Added" + AmountOfXP;
-        }else{
-            return AmountOfXP.ToString();
-        }
-    }**/
-
-    public void AddToPref(string PrefName, int add){
-        PlayerPrefs.SetString(PrefName, PlayerPrefs.GetString(PrefName)+1);
-    }
     public void CollectTreasure()
     {
-        // TODO: Intgrate into function.
-        if (PlayerPrefs.GetString("treasure") == "Sword")
-        {
-            add = 1500;
-            AddToPref("ItemSword", 1);
-            Debug.Log("Added one to ItemSword.");
-        }
-        else if (PlayerPrefs.GetString("treasure") == "Bust")
-        {
-            add = 800;
-            AddToPref("ItemBust", 1);
-            Debug.Log("Added one to ItemBust.");
-        }
-        else if (PlayerPrefs.GetString("treasure") == "Weird peice of electroplated silver")
-        {
-            add = 1700;
-            AddToPref("ItemBust", 1);
-            Debug.Log("Added one to ItemBust.");
-        }
-        else
-        {
-            add = 42;
-            Debug.Log("Weird thing happened(LoadTreasure, CollectTreasure): Unknown Treasure");
-        }
-        AddToPref("XP", add);
+        PlayerPrefs.SetInt("xp", PlayerPrefs.GetInt("xp")+xpGain);
+        XPText.text = xpGain + " xp gained!";
+
         Destroy(treasureObj);
         StartCoroutine(FadeLoadingScreen(1, 1));
         hasBeenPickedUp = true;
@@ -95,7 +63,6 @@ public class LoadTreasure : MonoBehaviour
 
     IEnumerator FadeLoadingScreen(float targetValue, float duration)
     {
-        XPText.text = "You have gained " + add.ToString() + " XP";
         float startValue = canvasGroup.alpha;
         float time = 0;
 

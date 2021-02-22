@@ -425,18 +425,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c915125c321a4e6d96fdcb89bd8834b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sword: {fileID: 3031042188248953201, guid: da637cdeb35774380ac4207eb420555d, type: 3}
-  knife: {fileID: 3031042188248953201, guid: 2c0389aa8db4748a5b69ecfde5f38487, type: 3}
-  bust: {fileID: 3031042188248953201, guid: e82e82daee44a45b8bfda98da965e096, type: 3}
-  potteryShard: {fileID: 3031042188248953201, guid: d148e23af4c7d47b48dcbef71d96fd2b,
+  swordPrefab: {fileID: 3031042188248953201, guid: da637cdeb35774380ac4207eb420555d,
     type: 3}
-  electroplatedSilver: {fileID: 3031042188248953201, guid: 77095f1e954c9464ab2d7835e5853a44,
+  knifePrefab: {fileID: 3031042188248953201, guid: 2c0389aa8db4748a5b69ecfde5f38487,
+    type: 3}
+  bustPrefab: {fileID: 3031042188248953201, guid: e82e82daee44a45b8bfda98da965e096,
+    type: 3}
+  potteryShardPrefab: {fileID: 3031042188248953201, guid: d148e23af4c7d47b48dcbef71d96fd2b,
+    type: 3}
+  electroplatedSilverPrefab: {fileID: 3031042188248953201, guid: 77095f1e954c9464ab2d7835e5853a44,
     type: 3}
   treasureObj: {fileID: 0}
   XPText: {fileID: 1795909366}
   canvasGroup: {fileID: 155275555}
   time: 0
   hasBeenPickedUp: 0
+  xpGain: 10
 --- !u!1 &677970958
 GameObject:
   m_ObjectHideFlags: 0
