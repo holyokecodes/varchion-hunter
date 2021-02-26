@@ -20,6 +20,8 @@ public class LoadTreasure : MonoBehaviour
 
     public int xpGain = 10;
 
+    int itemNumber = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,18 +32,23 @@ public class LoadTreasure : MonoBehaviour
         if ( treasure == "Sword")
         {
             treasureObj = Instantiate(swordPrefab, new Vector3(0, 0, 2), Quaternion.identity);
+            itemNumber = 0;
         } else if (treasure == "Knife")
         {
             treasureObj = Instantiate(knifePrefab, new Vector3(0, 0, 2), Quaternion.identity);
+            itemNumber = 1;
         } else if (treasure == "Bust")
         {
             treasureObj = Instantiate(bustPrefab, new Vector3(0, 0, 2), Quaternion.identity);
+            itemNumber = 2;
         } else if (treasure == "Pottery Shard")
         {
             treasureObj = Instantiate(potteryShardPrefab, new Vector3(0, 0, 2), Quaternion.identity);
+            itemNumber = 3;
         } else if (treasure == "Weird peice of electroplated silver")
         {
             treasureObj = Instantiate(electroplatedSilverPrefab, new Vector3(0, 0, 2), Quaternion.identity);
+            itemNumber = 4;
         }
     }
 
@@ -57,6 +64,7 @@ public class LoadTreasure : MonoBehaviour
         XPText.text = xpGain + " xp gained!";
 
         PlayerPrefs.SetInt("collected", 1);
+        PlayerPrefs.SetInt("item" + itemNumber, PlayerPrefs.GetInt("item" + itemNumber) + 1);
 
         Destroy(treasureObj);
         StartCoroutine(FadeLoadingScreen(1, 1));

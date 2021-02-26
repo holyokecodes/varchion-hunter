@@ -60,23 +60,20 @@ public class DigSiteGenerator : MonoBehaviour
     {
         Location currLoc = _locationProvider.CurrentLocation;
 
-        if (!hasGeneratedPoints && !currLoc.LatitudeLongitude.Equals(Vector2d.zero) && currLoc.IsLocationServiceEnabled)
+        if (!currLoc.LatitudeLongitude.Equals(Vector2d.zero) && currLoc.IsLocationServiceEnabled)
         {
-            GenerateTheDigSites();
-            hasGeneratedPoints = true;
+            if (!hasGeneratedPoints)
+            {
+                GenerateTheDigSites();
+                hasGeneratedPoints = true;
+            }
+            if (PlayerPrefs.GetInt("collected") == 1)
+            {
+                GenerateNewDigSite(PlayerPrefs.GetInt("minIndex"));
+                print("Generated a new dig site!");
+                PlayerPrefs.SetInt("collected", 0);
+            }
         }
-
-        /*if (PlayerPrefs.GetInt("collected") == 1)
-        {
-            digSite foundDigSite = new digSite();
-            print("The nearest digsite has treasure " + distanceChecker.minTreasure);
-            foundDigSite.latLong = distanceChecker.minPos;
-            foundDigSite.treasure = distanceChecker.minTreasure;
-            print("Generating a dig site at index " + System.Array.IndexOf(digSites, foundDigSite));
-            GenerateNewDigSite(System.Array.IndexOf(digSites, foundDigSite));
-            print("Generated a new dig site!");
-            PlayerPrefs.SetInt("collected", 0);
-        }*/
 
         int count = _spawnedObjects.Count;
         for (int i = 0; i < count; i++)

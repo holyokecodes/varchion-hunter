@@ -41,6 +41,7 @@ public class DistanceChecker : MonoBehaviour
                     min = distance;
                     minTreasure = digSites.digSites[i].treasure;
                     minPos = digSites.digSites[i].latLong;
+                    PlayerPrefs.SetInt("minIndex", i);
                 }
             }
         }
