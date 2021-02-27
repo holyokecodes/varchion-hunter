@@ -218,6 +218,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8025170607688380352, guid: 05d7a4ca1ace04f5ab50c43e36e303a6,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025170607688380352, guid: 05d7a4ca1ace04f5ab50c43e36e303a6,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 5
       objectReference: {fileID: 0}
@@ -228,8 +233,18 @@ PrefabInstance:
       objectReference: {fileID: 1581215159}
     - target: {fileID: 8025170607688380352, guid: 05d7a4ca1ace04f5ab50c43e36e303a6,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025170607688380352, guid: 05d7a4ca1ace04f5ab50c43e36e303a6,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: StartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025170607688380352, guid: 05d7a4ca1ace04f5ab50c43e36e303a6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8025170607688380414, guid: 05d7a4ca1ace04f5ab50c43e36e303a6,
         type: 3}
@@ -429,11 +444,11 @@ MonoBehaviour:
     type: 3}
   knifePrefab: {fileID: 3031042188248953201, guid: 2c0389aa8db4748a5b69ecfde5f38487,
     type: 3}
-  bustPrefab: {fileID: 3031042188248953201, guid: e82e82daee44a45b8bfda98da965e096,
+  bustPrefab: {fileID: 3031042188248953201, guid: 77095f1e954c9464ab2d7835e5853a44,
     type: 3}
   potteryShardPrefab: {fileID: 3031042188248953201, guid: d148e23af4c7d47b48dcbef71d96fd2b,
     type: 3}
-  electroplatedSilverPrefab: {fileID: 3031042188248953201, guid: 77095f1e954c9464ab2d7835e5853a44,
+  electroplatedSilverPrefab: {fileID: 3031042188248953201, guid: e82e82daee44a45b8bfda98da965e096,
     type: 3}
   treasureObj: {fileID: 0}
   XPText: {fileID: 1795909366}
@@ -617,6 +632,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8025170607688380352, guid: 05d7a4ca1ace04f5ab50c43e36e303a6,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025170607688380352, guid: 05d7a4ca1ace04f5ab50c43e36e303a6,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -627,8 +647,18 @@ PrefabInstance:
       objectReference: {fileID: 540059309}
     - target: {fileID: 8025170607688380352, guid: 05d7a4ca1ace04f5ab50c43e36e303a6,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025170607688380352, guid: 05d7a4ca1ace04f5ab50c43e36e303a6,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: CollectTreasure
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025170607688380352, guid: 05d7a4ca1ace04f5ab50c43e36e303a6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8025170607688380414, guid: 05d7a4ca1ace04f5ab50c43e36e303a6,
         type: 3}
