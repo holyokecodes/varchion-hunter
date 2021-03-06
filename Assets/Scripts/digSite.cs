@@ -9,4 +9,5 @@ public class digSite
 
     public string treasure;
     public string name = "treasure";
+    public Sprite icon;
 }

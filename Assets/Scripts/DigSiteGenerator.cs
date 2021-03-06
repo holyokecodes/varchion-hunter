@@ -22,16 +22,19 @@ public class DigSiteGenerator : MonoBehaviour
 
     List<GameObject> _spawnedObjects; //The objects that have been spawned
 
-    public int seed = 50; //The seed for the reandom jnumber generator
+    public int seed = 50; //The seed for the reandom number generator
     int digSiteNumber; //The index of the generated digsite.
 
-    public digSite[] digSites = new digSite[20]; //The digsites
+    public digSite[] digSites = new digSite[0]; //The digsites
 
     private AbstractLocationProvider _locationProvider = null;
 
     bool hasGeneratedPoints = false;
 
     public DistanceChecker distanceChecker;
+
+    public string[] treasures;
+    public Sprite[] icons;
 
     void Start()
     {
@@ -43,15 +46,6 @@ public class DigSiteGenerator : MonoBehaviour
         if (null == _locationProvider)
         {
             _locationProvider = LocationProviderFactory.Instance.DefaultLocationProvider as AbstractLocationProvider;
-        }
-
-        _spawnedObjects = new List<GameObject>();
-        for (int i = 0; i < _locations.Length; i++)
-        {
-            var instance = Instantiate(_markerPrefab);
-            instance.transform.localPosition = _map.GeoToWorldPosition(_locations[i], true);
-            instance.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
-            _spawnedObjects.Add(instance);
         }
     }
 
@@ -66,31 +60,48 @@ public class DigSiteGenerator : MonoBehaviour
             {
                 GenerateTheDigSites();
                 hasGeneratedPoints = true;
+                //print("generated da disites!");
             }
             if (PlayerPrefs.GetInt("collected") == 1)
             {
                 GenerateNewDigSite(PlayerPrefs.GetInt("minIndex"));
-                print("Generated a new dig site!");
+                //print("Generated a new dig site!");
                 PlayerPrefs.SetInt("collected", 0);
             }
         }
-
-        int count = _spawnedObjects.Count;
-        for (int i = 0; i < count; i++)
+        if (hasGeneratedPoints)
         {
-            var spawnedObject = _spawnedObjects[i];
-            var location = _locations[i];
-            spawnedObject.transform.localPosition = _map.GeoToWorldPosition(location, true);
-            spawnedObject.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
+            int count = _spawnedObjects.Count;
+            for (int i = 0; i < count; i++)
+            {
+                var spawnedObject = _spawnedObjects[i];
+                var location = digSites[i].latLong;
+                spawnedObject.transform.localPosition = _map.GeoToWorldPosition(location, true);
+                spawnedObject.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
+                spawnedObject.GetComponent<BillboardPin>().icon.sprite = digSites[i].icon;
+            }
         }
     }
 
     public void GenerateTheDigSites()
     {
+        digSites = new digSite[20];
+
         for (int i = 0; i < 20; i++)
         {
             GenerateNewDigSite(i);
         }
+
+        _spawnedObjects = new List<GameObject>();
+        for (int i = 0; i < digSites.Length; i++)
+        {
+            var instance = Instantiate(_markerPrefab);
+            instance.transform.localPosition = _map.GeoToWorldPosition(digSites[i].latLong, true);
+            instance.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
+            _spawnedObjects.Add(instance);
+        }
+
+        //print(digSites.Length);
     }
 
     public void GenerateNewDigSite(int digSiteNumber)
@@ -114,31 +125,16 @@ public class DigSiteGenerator : MonoBehaviour
 
 
         string treasure = "Default";
+        int randoNumba = Random.Range(0, treasures.Length);
+        treasure = treasures[randoNumba];
 
-        switch (Random.Range(0, 5))
-        {
-            case 0:
-                treasure = "Sword";
-                break;
-            case 1:
-                treasure = "Knife";
-                break;
-            case 2:
-                treasure = "Bust";
-                break;
-            case 3:
-                treasure = "Pottery Shard";
-                break;
-            case 4:
-                treasure = "Weird peice of electroplated silver";
-                break;
-        }
         digSite currectDigSite = new digSite();
 
         currectDigSite.latLong = new Vector2d(latitude, longitude);
         currectDigSite.treasure = treasure;
+        currectDigSite.icon = icons[randoNumba];
 
-        _locations[digSiteNumber] = new Vector2d(latitude, longitude);
+        //_locations[digSiteNumber] = new Vector2d(latitude, longitude);
 
         digSites[digSiteNumber] = currectDigSite;
     }
