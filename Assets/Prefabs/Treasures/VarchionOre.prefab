@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3031042188248953203}
   - component: {fileID: 3031042188248953202}
   m_Layer: 0
-  m_Name: Knife
+  m_Name: VarchionOre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,7 +178,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3031042189622825930}
-  m_Text: Knife
+  m_Text: Varchion Ore
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1

@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 0
   displayName: Sword
+  prefab: {fileID: 3031042188248953201, guid: da637cdeb35774380ac4207eb420555d, type: 3}
   icon: {fileID: 21300000, guid: 24734415418844bf99aeb8c346349a2e, type: 3}

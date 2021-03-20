@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 3
   displayName: Varchion Teleportation Staff
+  prefab: {fileID: 3031042188248953201, guid: e82e82daee44a45b8bfda98da965e096, type: 3}
   icon: {fileID: 21300000, guid: b99f8de2653f7498e9c028e24a5d01bf, type: 3}

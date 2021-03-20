@@ -32,43 +32,24 @@ public class LoadTreasure : MonoBehaviour
     void Start()
     {
         //string treasure = PlayerPrefs.GetString("treasure");
-        int treasure = 0;
+        int treasure = PlayerPrefs.GetInt("treasure");
+        print("Treasure ID: " + treasure);
 
         arPlaneManager.planesChanged += PlanesChanged;
 
-        string treasure = PlayerPrefs.GetString("treasure");
+        //string treasure = PlayerPrefs.GetString("treasure");
         
         // REALLY IMPORTANT NOTE! if you want different values of XP for different treasures, set them here with the code "xpGain = [new value]"
 
-        if (treasure == "Sword")
+        for (int i = 0; i < treasures.treasures.Length; i++)
         {
-            treasurePrefab = swordPrefab;
-            itemNumber = 0;
+            if (treasures.treasures[i].ID == treasure)
+            {
+                treasureObj = treasures.treasures[i].prefab;
+                print(treasures.treasures[i].displayName);
+            }
         }
-        else if (treasure == "Knife")
-        {
-            treasurePrefab = knifePrefab;
-            itemNumber = 1;
-        }
-        else if (treasure == "Bust")
-        {
-            treasurePrefab = bustPrefab;
-            itemNumber = 2;
-        }
-        else if (treasure == "Pottery Shard")
-        {
-            treasurePrefab = potteryShardPrefab;
-            itemNumber = 3;
-        }
-        else if (treasure == "Weird peice of electroplated silver")
-        {
-            treasurePrefab = electroplatedSilverPrefab;
-            itemNumber = 4;
-        } else
-        {
-            print("none");
-            print("Teasure Number: " + PlayerPrefs.GetString("treasure"));
-        }
+        //Instantiate(treasureObj, Vector3.zero, Quaternion.identity);
     }
 
     void Update()
@@ -85,7 +66,7 @@ public class LoadTreasure : MonoBehaviour
             if (args.added.Count > 0)
             {
                 ARPlane arPlane = args.added[0];
-                treasureObj = Instantiate(treasurePrefab, arPlane.transform.position, Quaternion.identity);
+                treasureObj = Instantiate(treasurePrefab, arPlane.transform);//.position, Quaternion.identity);
             }
         }
     }

@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 2
   displayName: Bucket
+  prefab: {fileID: 3031042188248953201, guid: 77095f1e954c9464ab2d7835e5853a44, type: 3}
   icon: {fileID: 21300000, guid: aa3c198501b8f4d82a9669918bf3be3f, type: 3}
