@@ -11,7 +11,7 @@ public class DistanceChecker : MonoBehaviour
     private AbstractLocationProvider _locationProvider = null;
 
     public double min = 0.0003f;
-    public string minTreasure = "";
+    public int minTreasure = 0;
     public Vector2d minPos;
 
     public GameObject ARButton;
@@ -39,7 +39,7 @@ public class DistanceChecker : MonoBehaviour
                 if (distance < min)
                 {
                     min = distance;
-                    minTreasure = digSites.digSites[i].treasure;
+                    minTreasure = digSites.digSites[i].treasure.ID;
                     minPos = digSites.digSites[i].latLong;
                     PlayerPrefs.SetInt("minIndex", i);
                 }
@@ -49,7 +49,7 @@ public class DistanceChecker : MonoBehaviour
         if (min < 0.0005)
         {
             ARButton.SetActive(true);
-            PlayerPrefs.SetString("treasure", minTreasure);
+            PlayerPrefs.SetInt("treasure", minTreasure);
         } else
         {
             ARButton.SetActive(false);

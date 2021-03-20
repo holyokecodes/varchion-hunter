@@ -7,7 +7,7 @@ public class digSite
 {
     public Vector2d latLong;
 
-    public string treasure;
+    public TreasureScriptableObject treasure;
     public string name = "treasure";
     public Sprite icon;
 }

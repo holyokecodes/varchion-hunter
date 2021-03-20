@@ -33,8 +33,7 @@ public class DigSiteGenerator : MonoBehaviour
 
     public DistanceChecker distanceChecker;
 
-    public string[] treasures;
-    public Sprite[] icons;
+    public TreasureList treasures;
 
     void Start()
     {
@@ -124,15 +123,15 @@ public class DigSiteGenerator : MonoBehaviour
 
 
 
-        string treasure = "Default";
-        int randoNumba = Random.Range(0, treasures.Length);
-        treasure = treasures[randoNumba];
+        TreasureScriptableObject treasure;
+        int randoNumba = Random.Range(0, treasures.treasures.Length);
+        treasure = treasures.treasures[randoNumba];
 
         digSite currectDigSite = new digSite();
 
         currectDigSite.latLong = new Vector2d(latitude, longitude);
         currectDigSite.treasure = treasure;
-        currectDigSite.icon = icons[randoNumba];
+        currectDigSite.icon = treasure.icon;
 
         //_locations[digSiteNumber] = new Vector2d(latitude, longitude);
 

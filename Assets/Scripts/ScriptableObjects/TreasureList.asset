@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49aa0d2cefb074a31819115229e41dca, type: 3}
+  m_Name: TreasureList
+  m_EditorClassIdentifier: 
+  treasures:
+  - {fileID: 11400000, guid: 4af1436339abd4607913bda425fcc987, type: 2}
+  - {fileID: 11400000, guid: 0c638700b9dad40229f2c3cd9c139cd8, type: 2}
+  - {fileID: 11400000, guid: 778fe576a4e264d0da2a0bba4e5315c1, type: 2}
+  - {fileID: 11400000, guid: 93ea7fc8dc93d4e7bbfb8c4b2accb520, type: 2}
+  - {fileID: 11400000, guid: 89a2ff9f549fa4263b22b19b825ab2bd, type: 2}

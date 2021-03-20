@@ -22,10 +22,13 @@ public class LoadTreasure : MonoBehaviour
 
     int itemNumber = 0;
 
+    public TreasureList treasures;
+
     // Start is called before the first frame update
     void Start()
     {
-        string treasure = PlayerPrefs.GetString("treasure");
+        //string treasure = PlayerPrefs.GetString("treasure");
+        int treasure = 0;
 
         // REALLY IMPORTANT NOTE! if you want different values of XP for different treasures, set them here with the code "xpGain = [new value]"
 
@@ -49,6 +52,10 @@ public class LoadTreasure : MonoBehaviour
         {
             treasureObj = Instantiate(electroplatedSilverPrefab, new Vector3(0, 0, 2), Quaternion.identity);
             itemNumber = 4;
+        } else
+        {
+            print("none");
+            print("Teasure Number: " + PlayerPrefs.GetString("treasure"));
         }
     }
 
