@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR.ARFoundation;
 
 public class LoadTreasure : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class LoadTreasure : MonoBehaviour
     public GameObject bustPrefab;
     public GameObject potteryShardPrefab;
     public GameObject electroplatedSilverPrefab;
+    private GameObject treasurePrefab;
 
     public GameObject treasureObj;
     public Text XPText;
@@ -20,42 +22,63 @@ public class LoadTreasure : MonoBehaviour
 
     public int xpGain = 10;
 
+    public ARPlaneManager arPlaneManager;
+
     int itemNumber = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        arPlaneManager.planesChanged += PlanesChanged;
+
         string treasure = PlayerPrefs.GetString("treasure");
 
         // REALLY IMPORTANT NOTE! if you want different values of XP for different treasures, set them here with the code "xpGain = [new value]"
 
-        if ( treasure == "Sword")
+        if (treasure == "Sword")
         {
-            treasureObj = Instantiate(swordPrefab, new Vector3(0, 0, 2), Quaternion.identity);
+            treasurePrefab = swordPrefab;
             itemNumber = 0;
-        } else if (treasure == "Knife")
+        }
+        else if (treasure == "Knife")
         {
-            treasureObj = Instantiate(knifePrefab, new Vector3(0, 0, 2), Quaternion.identity);
+            treasurePrefab = knifePrefab;
             itemNumber = 1;
-        } else if (treasure == "Bust")
+        }
+        else if (treasure == "Bust")
         {
-            treasureObj = Instantiate(bustPrefab, new Vector3(0, 0, 2), Quaternion.identity);
+            treasurePrefab = bustPrefab;
             itemNumber = 2;
-        } else if (treasure == "Pottery Shard")
+        }
+        else if (treasure == "Pottery Shard")
         {
-            treasureObj = Instantiate(potteryShardPrefab, new Vector3(0, 0, 2), Quaternion.identity);
+            treasurePrefab = potteryShardPrefab;
             itemNumber = 3;
-        } else if (treasure == "Weird peice of electroplated silver")
+        }
+        else if (treasure == "Weird peice of electroplated silver")
         {
-            treasureObj = Instantiate(electroplatedSilverPrefab, new Vector3(0, 0, 2), Quaternion.identity);
+            treasurePrefab = electroplatedSilverPrefab;
             itemNumber = 4;
         }
     }
 
     void Update()
     {
-        if (hasBeenPickedUp){time += Time.deltaTime;}
-        if (time >= 2){StartCoroutine(FadeLoadingScreen(0, 1));}
+        if (hasBeenPickedUp) { time += Time.deltaTime; }
+        if (time >= 2) { StartCoroutine(FadeLoadingScreen(0, 1)); }
+    }
+
+    private void PlanesChanged(ARPlanesChangedEventArgs args)
+    {
+        if (args.added != null && treasureObj == null)
+        {
+            // Get the first plane detected
+            if (args.added.Count > 0)
+            {
+                ARPlane arPlane = args.added[0];
+                treasureObj = Instantiate(treasurePrefab, arPlane.transform.position, Quaternion.identity);
+            }
+        }
     }
 
     public void CollectTreasure()
