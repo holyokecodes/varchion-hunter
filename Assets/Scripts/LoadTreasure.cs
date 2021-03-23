@@ -65,7 +65,7 @@ public class LoadTreasure : MonoBehaviour
         if (args.added != null && treasureObj == null)
         {
             // Get the first plane detected
-            if (args.added.Count > 0)
+            if (args.added.Count > 0 && !hasBeenPickedUp)
             {
                 ARPlane arPlane = args.added[0];
                 treasureObj = Instantiate(treasurePrefab, arPlane.transform.position, Quaternion.identity);
