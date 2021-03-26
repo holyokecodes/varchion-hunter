@@ -15,4 +15,4 @@ MonoBehaviour:
   ID: 4
   displayName: Varchion Ore
   prefab: {fileID: 3031042188248953201, guid: 2c0389aa8db4748a5b69ecfde5f38487, type: 3}
-  icon: {fileID: 21300000, guid: 29123cb0c9466418a8d4c9eacd5f7d52, type: 3}
+  icon: {fileID: 21300000, guid: 65307745f604341a8b9672a881400d78, type: 3}
