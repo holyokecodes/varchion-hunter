@@ -11,7 +11,10 @@ public class TargetAnimation : MonoBehaviour
     public float rotateSpeed = 1;
 
     bool goingUp = true;
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     public void FixedUpdate()
     {
         transform.Rotate(0, 0, rotateSpeed);

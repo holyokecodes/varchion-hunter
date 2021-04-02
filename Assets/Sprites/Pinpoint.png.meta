@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:Assets/Sprites/Pinpoint.png.meta
 guid: 327bbf54bdbb5452fa6d4577fa92aeff
+=======
+guid: c5162a8afb0c64e23b698fcca937be78
+>>>>>>> Stashed changes:Assets/Sprites/Menu.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

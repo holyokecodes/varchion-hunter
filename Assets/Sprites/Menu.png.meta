@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: c5162a8afb0c64e23b698fcca937be78
+=======
+<<<<<<< Updated upstream:Assets/Sprites/Pinpoint.png.meta
+guid: 327bbf54bdbb5452fa6d4577fa92aeff
+=======
+guid: c5162a8afb0c64e23b698fcca937be78
+>>>>>>> Stashed changes:Assets/Sprites/Menu.png.meta
+>>>>>>> Stashed changes
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -46,7 +54,11 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
+<<<<<<< Updated upstream
   spriteBorder: {x: 64, y: 42, z: 80, w: 55}
+=======
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+>>>>>>> Stashed changes
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
