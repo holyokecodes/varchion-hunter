@@ -125,7 +125,7 @@ public class DigSiteGenerator : MonoBehaviour
 
         TreasureScriptableObject treasure;
         int randoNumba = Random.Range(0, treasures.treasures.Length);
-        treasure = treasures.treasures[randoNumba];
+        treasure = treasures.treasures[4];// randoNumba];
 
         digSite currectDigSite = new digSite();
 

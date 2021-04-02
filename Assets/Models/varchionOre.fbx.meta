@@ -3,7 +3,17 @@ guid: 74a9dffa726f043c09f0e37f4ffc3c9c
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Varchion
+    second: {fileID: 2100000, guid: 03867f3bf1a084692a387703d0c40fc2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stone
+    second: {fileID: 2100000, guid: 8b8bdd9e8d54b42e9938796f131c8a90, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
