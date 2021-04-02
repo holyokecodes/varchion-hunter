@@ -282,7 +282,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: X
+  m_Text: <b>X</b>
 --- !u!222 &31763824
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -982,7 +982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.68235296, g: 0.59607846, b: 0.41568628, a: 1}
+  m_Color: {r: 0.5, g: 0.43678162, b: 0.30459768, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -997,7 +997,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 2
+  m_PixelsPerUnitMultiplier: 3
 --- !u!222 &470105458
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1812,7 +1812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.681, g: 0.5974227, b: 0.41479093, a: 1}
+  m_Color: {r: 0.5, g: 0.43678162, b: 0.30459768, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1827,7 +1827,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 2.51
+  m_PixelsPerUnitMultiplier: 3
 --- !u!222 &731921261
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2026,7 +2026,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1066647069
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4472,18 +4472,7 @@ MonoBehaviour:
     type: 3}
   seed: 50
   distanceChecker: {fileID: 1094528993850015}
-  treasures:
-  - Bucket
-  - Sword Painted
-  - Clay Pot
-  - Varchion Teleportation Staff
-  - Varchion Ore
-  icons:
-  - {fileID: 21300000, guid: 232b02d44d1b84d0db4b78d2c9775014, type: 3}
-  - {fileID: 21300000, guid: 24734415418844bf99aeb8c346349a2e, type: 3}
-  - {fileID: 21300000, guid: 9a6cc5f518ecc412c8d4970c3a0bd1bb, type: 3}
-  - {fileID: 21300000, guid: 232b02d44d1b84d0db4b78d2c9775014, type: 3}
-  - {fileID: 21300000, guid: 232b02d44d1b84d0db4b78d2c9775014, type: 3}
+  treasures: {fileID: 11400000, guid: f84c1dc5d635743a8a84c3dc107c620f, type: 2}
 --- !u!114 &1094528993850015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4498,7 +4487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   digSites: {fileID: 1094528993850014}
   min: 0.0001
-  minTreasure: 
+  minTreasure: 0
   minPos:
     x: 0
     y: 0
