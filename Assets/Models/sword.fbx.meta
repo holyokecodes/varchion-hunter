@@ -1,9 +1,27 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: e8240437f9b1aec47a4700a1923ebf3e
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
   externalObjects: {}
+=======
+guid: e940dd12c8ed447f2b620393c0f89903
+ModelImporter:
+  serializedVersion: 19301
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BladeFallback
+    second: {fileID: 2100000, guid: b2120d02b25204bcdb008a8926d12760, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HiltFallback
+    second: {fileID: 2100000, guid: eebd02936b85e46ec8e7450c092fa341, type: 2}
+>>>>>>> Stashed changes
   materials:
     materialImportMode: 1
     materialName: 0
