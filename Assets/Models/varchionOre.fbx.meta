@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Varchion
-    second: {fileID: 2100000, guid: 03867f3bf1a084692a387703d0c40fc2, type: 2}
+    second: {fileID: 2100000, guid: 5ce24274cb7a5492bbe9d94048fbd6c6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
