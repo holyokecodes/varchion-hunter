@@ -1,19 +1,10 @@
 ﻿using System.Collections;
-<<<<<<< Updated upstream
-using System.Runtime;
-=======
-using System.Collections.Generic;
->>>>>>> Stashed changes
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LoadScene : MonoBehaviour
 {
-<<<<<<< Updated upstream
-    
-=======
->>>>>>> Stashed changes
     public GameObject loadingScreen;
     public string sceneToLoad;
     public CanvasGroup canvasGroup;
@@ -36,14 +27,6 @@ public class LoadScene : MonoBehaviour
     public void Start()
     {
         DontDestroyOnLoad(gameObject);
-<<<<<<< Updated upstream
-=======
-        //GameObject[] loadings = GameObject.FindGameObjectsWithTag("IntroLoader");
-        //if (loadings.Length < 2)
-        //    DontDestroyOnLoad(gameObject);
-        //else
-        //    Destroy(gameObject);
->>>>>>> Stashed changes
     }
 
     public void Update()

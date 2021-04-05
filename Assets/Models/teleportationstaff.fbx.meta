@@ -1,9 +1,24 @@
 fileFormatVersion: 2
-guid: fd61ffb341d3bf74e9410e0570472e47
+guid: 5108bcfabe40a4e3b9e0deda204d408d
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal
+    second: {fileID: 2100000, guid: 173f29dbe150a431ba00fc3cd428be3b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Varchion
+    second: {fileID: 2100000, guid: 5ce24274cb7a5492bbe9d94048fbd6c6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood
+    second: {fileID: 2100000, guid: 648e8abb6e95a48379864349ba61bba7, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
