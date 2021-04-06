@@ -532,7 +532,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: ee5fa2222dc6a4d55a9bb5b167674861, type: 3}
-  m_Type: 3
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -967,7 +967,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 12.5}
-  m_SizeDelta: {x: 0, y: -25}
+  m_SizeDelta: {x: -4, y: -29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &470105457
 MonoBehaviour:
@@ -988,7 +988,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ee5fa2222dc6a4d55a9bb5b167674861, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 848f3859cd4b845b1a4e33dbffa5f473, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -997,7 +997,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 3
+  m_PixelsPerUnitMultiplier: 2
 --- !u!222 &470105458
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1593,7 +1593,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -4, y: -4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &731921260
 MonoBehaviour:
@@ -1614,7 +1614,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ee5fa2222dc6a4d55a9bb5b167674861, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 848f3859cd4b845b1a4e33dbffa5f473, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1623,7 +1623,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 3
+  m_PixelsPerUnitMultiplier: 2
 --- !u!222 &731921261
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4120,7 +4120,7 @@ MonoBehaviour:
   distanceChecker: {fileID: 1094528993850015}
   treasures: {fileID: 11400000, guid: f84c1dc5d635743a8a84c3dc107c620f, type: 2}
   doOverrideValue: 1
-  overrideValue: 1
+  overrideValue: 0
 --- !u!114 &1094528993850015
 MonoBehaviour:
   m_ObjectHideFlags: 0
