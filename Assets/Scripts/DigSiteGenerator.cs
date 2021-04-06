@@ -113,7 +113,7 @@ public class DigSiteGenerator : MonoBehaviour
         float currentLat = (float) currLoc.LatitudeLongitude.y;
         float currentLong = (float) currLoc.LatitudeLongitude.x;
 
-        Vector2d latLongChange = new Vector2d(Random.Range(0, 300f), Random.Range(0, 300f));
+        Vector2d latLongChange = new Vector2d(Random.Range(0, 600f)-300, Random.Range(0, 600f)-300);
         float latChange = (float) latLongChange.x;
         float longChange = (float) latLongChange.y;
 
