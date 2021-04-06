@@ -25,7 +25,7 @@ public class DigSiteGenerator : MonoBehaviour
     public int seed = 50; //The seed for the reandom number generator
     int digSiteNumber; //The index of the generated digsite.
 
-    public digSite[] digSites = new digSite[0]; //The digsites
+    public DigSite[] digSites = new DigSite[0]; //The digsites
 
     private AbstractLocationProvider _locationProvider = null;
 
@@ -60,7 +60,16 @@ public class DigSiteGenerator : MonoBehaviour
         {
             if (!hasGeneratedPoints)
             {
-                GenerateTheDigSites();
+                if (PlayerPrefs.GetInt("shouldLoadDigSites") == 0) GenerateNewDigSites();
+                else digSites = SaveAndLoad.LoadDigSites();
+                _spawnedObjects = new List<GameObject>();
+                for (int i = 0; i < digSites.Length; i++)
+                {
+                    var instance = Instantiate(_markerPrefab);
+                    instance.transform.localPosition = _map.GeoToWorldPosition(digSites[i].latLong, true);
+                    instance.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
+                    _spawnedObjects.Add(instance);
+                }
                 hasGeneratedPoints = true;
                 //print("generated da disites!");
             }
@@ -80,30 +89,22 @@ public class DigSiteGenerator : MonoBehaviour
                 var location = digSites[i].latLong;
                 spawnedObject.transform.localPosition = _map.GeoToWorldPosition(location, true);
                 spawnedObject.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
-                spawnedObject.GetComponent<BillboardPin>().icon.sprite = digSites[i].icon;
+                spawnedObject.GetComponent<BillboardPin>().icon.sprite = treasures.treasures[digSites[i].treasureID].icon;
             }
         }
     }
 
-    public void GenerateTheDigSites()
+    public void GenerateNewDigSites()
     {
-        digSites = new digSite[20];
+        digSites = new DigSite[20];
 
         for (int i = 0; i < 20; i++)
         {
             GenerateNewDigSite(i);
         }
 
-        _spawnedObjects = new List<GameObject>();
-        for (int i = 0; i < digSites.Length; i++)
-        {
-            var instance = Instantiate(_markerPrefab);
-            instance.transform.localPosition = _map.GeoToWorldPosition(digSites[i].latLong, true);
-            instance.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
-            _spawnedObjects.Add(instance);
-        }
-
-        //print(digSites.Length);
+        SaveAndLoad.SaveDigSites(digSites);
+        PlayerPrefs.SetInt("shouldLoadDigSites", 1);
     }
 
     public void GenerateNewDigSite(int digSiteNumber)
@@ -126,20 +127,22 @@ public class DigSiteGenerator : MonoBehaviour
 
 
 
-        TreasureScriptableObject treasure;
+        int treasure;
         int randoNumba = Random.Range(0, treasures.treasures.Length);
-        treasure = treasures.treasures[randoNumba];
+        treasure = randoNumba;
 
-        if (doOverrideValue) treasure = treasures.treasures[overrideValue];
+        if (doOverrideValue) treasure = overrideValue;
 
-        digSite currectDigSite = new digSite();
+        DigSite currectDigSite = new DigSite();
 
         currectDigSite.latLong = new Vector2d(latitude, longitude);
-        currectDigSite.treasure = treasure;
-        currectDigSite.icon = treasure.icon;
+        currectDigSite.treasureID = treasure;
+        //currectDigSite.icon = treasure.icon;
 
         //_locations[digSiteNumber] = new Vector2d(latitude, longitude);
 
         digSites[digSiteNumber] = currectDigSite;
+
+        SaveAndLoad.SaveDigSites(digSites);
     }
 }

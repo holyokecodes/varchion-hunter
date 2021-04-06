@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class ClearPlayerPrefs : MonoBehaviour
 {
+    [SerializeField]
+    private DigSiteGenerator digSiteGenerator;
+
     public void ClearPlayerprefs()
     {
         PlayerPrefs.DeleteAll();
-        print("cleared");
+        digSiteGenerator.GenerateNewDigSites();
     }
 }

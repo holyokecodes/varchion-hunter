@@ -9,6 +9,7 @@ public class RelativeUISize : MonoBehaviour
 
     public RectTransform[] rects;
     public float padding;
+    [SerializeField]
     int numberOfThings;
 
     private void Awake()
@@ -28,7 +29,9 @@ public class RelativeUISize : MonoBehaviour
             if (rects[i] != null)
             {
                 rects[i].sizeDelta = new Vector2((canvas.sizeDelta.x / numberOfThings) - padding, rects[i].sizeDelta.y);
+                rects[i].anchoredPosition = new Vector2((canvas.sizeDelta.x / (numberOfThings)) * (i+0.5f), rects[i].anchoredPosition.y);
             }
         }
+        numberOfThings = rects.Length;
     }
 }

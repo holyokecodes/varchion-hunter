@@ -39,7 +39,7 @@ public class DistanceChecker : MonoBehaviour
                 if (distance < min)
                 {
                     min = distance;
-                    minTreasure = digSites.digSites[i].treasure.ID;
+                    minTreasure = digSites.digSites[i].treasureID;
                     minPos = digSites.digSites[i].latLong;
                     PlayerPrefs.SetInt("minIndex", i);
                 }
