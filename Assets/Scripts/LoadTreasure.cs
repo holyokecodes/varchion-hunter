@@ -71,6 +71,7 @@ public class LoadTreasure : MonoBehaviour
                 treasureObj = Instantiate(treasurePrefab, arPlane.transform.position, Quaternion.identity);
                 treasureName.text = treasureNameStr;
                 Debug.Log("Made it: " + treasureNameStr);
+                treasureName.text += " | " + treasureNameStr;
             }
         }
     }

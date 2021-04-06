@@ -35,6 +35,9 @@ public class DigSiteGenerator : MonoBehaviour
 
     public TreasureList treasures;
 
+    public bool doOverrideValue;
+    public int overrideValue;
+
     void Start()
     {
 
@@ -125,7 +128,9 @@ public class DigSiteGenerator : MonoBehaviour
 
         TreasureScriptableObject treasure;
         int randoNumba = Random.Range(0, treasures.treasures.Length);
-        treasure = treasures.treasures[ randoNumba];
+        treasure = treasures.treasures[randoNumba];
+
+        if (doOverrideValue) treasure = treasures.treasures[overrideValue];
 
         digSite currectDigSite = new digSite();
 
