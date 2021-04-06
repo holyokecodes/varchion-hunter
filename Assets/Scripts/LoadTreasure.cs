@@ -6,11 +6,7 @@ using UnityEngine.XR.ARFoundation;
 
 public class LoadTreasure : MonoBehaviour
 {
-    public GameObject swordPrefab;
-    public GameObject knifePrefab;
-    public GameObject bustPrefab;
-    public GameObject potteryShardPrefab;
-    public GameObject electroplatedSilverPrefab;
+    public GameObject pickUpButton;
     private GameObject treasurePrefab;
 
     public GameObject treasureObj;
@@ -70,8 +66,6 @@ public class LoadTreasure : MonoBehaviour
                 ARPlane arPlane = args.added[0];
                 treasureObj = Instantiate(treasurePrefab, arPlane.transform.position, Quaternion.identity);
                 treasureName.text = treasureNameStr;
-                Debug.Log("Made it: " + treasureNameStr);
-                treasureName.text += " | " + treasureNameStr;
             }
         }
     }
@@ -85,6 +79,7 @@ public class LoadTreasure : MonoBehaviour
         PlayerPrefs.SetInt("item" + itemNumber, PlayerPrefs.GetInt("item" + itemNumber) + 1);
 
         Destroy(treasureObj);
+        Destroy(pickUpButton);
         StartCoroutine(FadeLoadingScreen(1, 1));
         hasBeenPickedUp = true;
     }

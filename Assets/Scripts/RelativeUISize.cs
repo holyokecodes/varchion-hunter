@@ -9,13 +9,26 @@ public class RelativeUISize : MonoBehaviour
 
     public RectTransform[] rects;
     public float padding;
+    int numberOfThings;
+
+    private void Awake()
+    {
+        numberOfThings = rects.Length;
+    }
 
     // Start is called before the first frame update
-    void Start()
+    void Update()
     {
         for (int i = 0; i < rects.Length; i++)
         {
-            rects[i].sizeDelta = new Vector2((canvas.sizeDelta.x / rects.Length) - padding, rects[i].sizeDelta.y);
+            if (rects[i] == null) numberOfThings -= 1;
+        }
+        for (int i = 0; i < rects.Length; i++)
+        {
+            if (rects[i] != null)
+            {
+                rects[i].sizeDelta = new Vector2((canvas.sizeDelta.x / numberOfThings) - padding, rects[i].sizeDelta.y);
+            }
         }
     }
 }
