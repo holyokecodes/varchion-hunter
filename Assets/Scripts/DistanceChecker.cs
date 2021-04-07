@@ -28,6 +28,7 @@ public class DistanceChecker : MonoBehaviour
     void Update()
     {
         min = 0.0005f;
+        
 
         Vector2d currLoc = _locationProvider.CurrentLocation.LatitudeLongitude;
 

@@ -118,6 +118,16 @@ public class DigSiteGenerator : MonoBehaviour
         float latChange = (float) latLongChange.x;
         float longChange = (float) latLongChange.y;
 
+        if (latChange >= -200 || latChange <= 0){
+            latChange = Random.Range(-600,-200);
+        }else if (latChange <= 200 || latChange >= 0){
+            latChange = Random.Range(200,600);
+        }if (longChange >= -200 || longChange <= 0){
+            longChange = Random.Range(-600,-200);
+        }else if (longChange <= 200 || longChange >= 0){
+            longChange = Random.Range(200,600);
+        }
+
         float latitude =  (float) Conversions.LatLonToMeters(new Vector2d(currentLat, currentLong)).x + latChange;
         float longitude = (float) Conversions.LatLonToMeters(new Vector2d(currentLat, currentLong)).y + longChange;
 
