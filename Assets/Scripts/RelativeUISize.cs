@@ -30,6 +30,7 @@ public class RelativeUISize : MonoBehaviour
             {
                 rects[i].sizeDelta = new Vector2((canvas.sizeDelta.x / numberOfThings) - padding, rects[i].sizeDelta.y);
                 rects[i].anchoredPosition = new Vector2((canvas.sizeDelta.x / (numberOfThings)) * (i+0.5f), rects[i].anchoredPosition.y);
+                if (numberOfThings == 1) rects[i].anchoredPosition = new Vector2((rects[i].sizeDelta.x + padding)/2, rects[i].anchoredPosition.y);
             }
         }
         numberOfThings = rects.Length;
