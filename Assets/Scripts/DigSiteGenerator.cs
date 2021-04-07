@@ -123,20 +123,20 @@ public class DigSiteGenerator : MonoBehaviour
         float currentLat = (float) currLoc.LatitudeLongitude.y;
         float currentLong = (float) currLoc.LatitudeLongitude.x;
 
-        print("Im at:" + currentLat + ", " + currentLong + "Lat/Long");
+        print("Im at: " + currentLat + ", " + currentLong + " Lat/Long");
 
-        currentLat = (float) Conversions.LatLonToMeters(new Vector2d(currentLat, currentLong)).x;
-        currentLong = (float) Conversions.LatLonToMeters(new Vector2d(currentLat, currentLong)).y;
+        currentLat = (float)Conversions.LatLonToMeters(new Vector2d(currentLat, currentLong)).x;
+        currentLong = (float)Conversions.LatLonToMeters(new Vector2d(currentLat, currentLong)).y;
 
-        print("Im at:" + currentLat + ", " + currentLong);
+        print("Im at: " + currentLat + ", " + currentLong);
 
         Vector2d latLongChange = new Vector2d(Random.Range(minDistance, maxDistance), Random.Range(minDistance, maxDistance));
         Vector2 isNegative = new Vector2(Random.Range(0, 1), Random.Range(0, 1));
 
-        print(latLongChange);
-
         if (isNegative.x == 0) latLongChange = new Vector2d(latLongChange.x * -1, latLongChange.y);
         if (isNegative.y == 0) latLongChange = new Vector2d(latLongChange.x, latLongChange.y * -1);
+
+        print(latLongChange);
 
         float latChange = (float) latLongChange.x;
         float longChange = (float) latLongChange.y;
@@ -146,7 +146,7 @@ public class DigSiteGenerator : MonoBehaviour
 
         print("place: " + (currentLat + latChange) + ", " + (currentLong + longChange));
 
-        print("Place:" + latitude + ", " + longitude + "Lat/Long");
+        print("Place:" + latitude + ", " + longitude + " Lat/Long");
 
         int treasure;
         int randoNumba = Random.Range(0, treasures.treasures.Length);
