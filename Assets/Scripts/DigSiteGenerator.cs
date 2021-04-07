@@ -31,6 +31,9 @@ public class DigSiteGenerator : MonoBehaviour
 
     bool hasGeneratedPoints = false;
 
+    [SerializeField]
+    bool loadDigSites = true;
+
     public DistanceChecker distanceChecker;
 
     public TreasureList treasures;
@@ -67,6 +70,7 @@ public class DigSiteGenerator : MonoBehaviour
             {
                 if (PlayerPrefs.GetInt("shouldLoadDigSites") == 0) GenerateNewDigSites();
                 else digSites = SaveAndLoad.LoadDigSites();
+                //if (!loadDigSites) GenerateNewDigSites();
                 _spawnedObjects = new List<GameObject>();
                 for (int i = 0; i < digSites.Length; i++)
                 {
@@ -119,11 +123,17 @@ public class DigSiteGenerator : MonoBehaviour
         float currentLat = (float) currLoc.LatitudeLongitude.y;
         float currentLong = (float) currLoc.LatitudeLongitude.x;
 
+        print("Im at:" + currentLat + ", " + currentLong + "Lat/Long");
+
         currentLat = (float) Conversions.LatLonToMeters(new Vector2d(currentLat, currentLong)).x;
         currentLong = (float) Conversions.LatLonToMeters(new Vector2d(currentLat, currentLong)).y;
 
+        print("Im at:" + currentLat + ", " + currentLong);
+
         Vector2d latLongChange = new Vector2d(Random.Range(minDistance, maxDistance), Random.Range(minDistance, maxDistance));
         Vector2 isNegative = new Vector2(Random.Range(0, 1), Random.Range(0, 1));
+
+        print(latLongChange);
 
         if (isNegative.x == 0) latLongChange = new Vector2d(latLongChange.x * -1, latLongChange.y);
         if (isNegative.y == 0) latLongChange = new Vector2d(latLongChange.x, latLongChange.y * -1);
@@ -131,8 +141,12 @@ public class DigSiteGenerator : MonoBehaviour
         float latChange = (float) latLongChange.x;
         float longChange = (float) latLongChange.y;
 
-        float latitude =  (float) Conversions.MetersToLatLon(new Vector2d(currentLat, currentLong)).x + latChange;
-        float longitude = (float) Conversions.MetersToLatLon(new Vector2d(currentLat, currentLong)).y + longChange;
+        float latitude = (float)Conversions.MetersToLatLon(new Vector2d(currentLat + latChange, currentLong)).x;
+        float longitude = (float)Conversions.MetersToLatLon(new Vector2d(currentLat, currentLong + longChange)).y;
+
+        print("place: " + (currentLat + latChange) + ", " + (currentLong + longChange));
+
+        print("Place:" + latitude + ", " + longitude + "Lat/Long");
 
         int treasure;
         int randoNumba = Random.Range(0, treasures.treasures.Length);
