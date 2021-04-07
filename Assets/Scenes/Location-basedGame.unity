@@ -4365,7 +4365,7 @@ MonoBehaviour:
   distanceChecker: {fileID: 1094528993850015}
   treasures: {fileID: 11400000, guid: f84c1dc5d635743a8a84c3dc107c620f, type: 2}
   doOverrideValue: 1
-  overrideValue: 0
+  overrideValue: 2
 --- !u!114 &1094528993850015
 MonoBehaviour:
   m_ObjectHideFlags: 0

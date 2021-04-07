@@ -12,7 +12,8 @@ public class LoadTreasure : MonoBehaviour
     public GameObject treasureObj;
     public Text XPText;
 
-    public CanvasGroup canvasGroup;
+    public CanvasGroup XPPopUp;
+    public CanvasGroup movePhone;
     public float time;
     public bool hasBeenPickedUp = false;
 
@@ -53,7 +54,7 @@ public class LoadTreasure : MonoBehaviour
     void Update()
     {
         if (hasBeenPickedUp) { time += Time.deltaTime; }
-        if (time >= 2) { StartCoroutine(FadeLoadingScreen(0, 1)); }
+        if (time >= 2) { StartCoroutine(FadeLoadingScreen(0, 1, XPPopUp)); }
     }
 
     private void PlanesChanged(ARPlanesChangedEventArgs args)
@@ -65,6 +66,7 @@ public class LoadTreasure : MonoBehaviour
             {
                 ARPlane arPlane = args.added[0];
                 treasureObj = Instantiate(treasurePrefab, arPlane.transform.position, Quaternion.identity);
+                StartCoroutine(FadeLoadingScreen(0, 0.5f, movePhone));
                 treasureName.text = treasureNameStr;
             }
         }
@@ -80,11 +82,11 @@ public class LoadTreasure : MonoBehaviour
 
         Destroy(treasureObj);
         Destroy(pickUpButton);
-        StartCoroutine(FadeLoadingScreen(1, 1));
+        StartCoroutine(FadeLoadingScreen(1, 1, XPPopUp));
         hasBeenPickedUp = true;
     }
 
-    IEnumerator FadeLoadingScreen(float targetValue, float duration)
+    IEnumerator FadeLoadingScreen(float targetValue, float duration, CanvasGroup canvasGroup)
     {
         float startValue = canvasGroup.alpha;
         float time = 0;
