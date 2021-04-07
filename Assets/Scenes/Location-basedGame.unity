@@ -4360,7 +4360,7 @@ MonoBehaviour:
   _spawnScale: 3
   _markerPrefab: {fileID: 9018683081751946580, guid: f42a5093a60264695bdb5d057a592f88,
     type: 3}
-  seed: 50
+  seed: 100
   digSites: []
   distanceChecker: {fileID: 1094528993850015}
   treasures: {fileID: 11400000, guid: f84c1dc5d635743a8a84c3dc107c620f, type: 2}
@@ -4385,6 +4385,7 @@ MonoBehaviour:
     x: 0
     y: 0
   ARButton: {fileID: 2090097231}
+  distanceForAR: 0.0001
 --- !u!1 &1150654721006899
 GameObject:
   m_ObjectHideFlags: 0

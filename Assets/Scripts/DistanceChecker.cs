@@ -16,6 +16,9 @@ public class DistanceChecker : MonoBehaviour
 
     public GameObject ARButton;
 
+    [SerializeField]
+    private float distanceForAR = 0.0001f;
+
     void Start()
     {
         if (null == _locationProvider)
@@ -46,7 +49,7 @@ public class DistanceChecker : MonoBehaviour
             }
         }
 
-        if (min < 0.0005)
+        if (min < distanceForAR)
         {
             ARButton.SetActive(true);
             PlayerPrefs.SetInt("treasure", minTreasure);

@@ -38,6 +38,11 @@ public class DigSiteGenerator : MonoBehaviour
     public bool doOverrideValue;
     public int overrideValue;
 
+    [SerializeField]
+    private float maxDistance = 600;
+    [SerializeField]
+    private float minDistance = 100;
+
     void Start()
     {
 
@@ -114,18 +119,20 @@ public class DigSiteGenerator : MonoBehaviour
         float currentLat = (float) currLoc.LatitudeLongitude.y;
         float currentLong = (float) currLoc.LatitudeLongitude.x;
 
-        Vector2d latLongChange = new Vector2d(Random.Range(-600, 600), Random.Range(-600, 600));
+        currentLat = (float) Conversions.LatLonToMeters(new Vector2d(currentLat, currentLong)).x;
+        currentLong = (float) Conversions.LatLonToMeters(new Vector2d(currentLat, currentLong)).y;
+
+        Vector2d latLongChange = new Vector2d(Random.Range(minDistance, maxDistance), Random.Range(minDistance, maxDistance));
+        Vector2 isNegative = new Vector2(Random.Range(0, 1), Random.Range(0, 1));
+
+        if (isNegative.x == 0) latLongChange = new Vector2d(latLongChange.x * -1, latLongChange.y);
+        if (isNegative.y == 0) latLongChange = new Vector2d(latLongChange.x, latLongChange.y * -1);
+
         float latChange = (float) latLongChange.x;
         float longChange = (float) latLongChange.y;
 
-        float latitude =  (float) Conversions.LatLonToMeters(new Vector2d(currentLat, currentLong)).x + latChange;
-        float longitude = (float) Conversions.LatLonToMeters(new Vector2d(currentLat, currentLong)).y + longChange;
-
-        latitude = (float)Conversions.MetersToLatLon(new Vector2d(latitude, longitude)).y;
-        longitude = (float)Conversions.MetersToLatLon(new Vector2d(latitude, longitude)).x;
-
-
-
+        float latitude =  (float) Conversions.MetersToLatLon(new Vector2d(currentLat, currentLong)).x + latChange;
+        float longitude = (float) Conversions.MetersToLatLon(new Vector2d(currentLat, currentLong)).y + longChange;
 
         int treasure;
         int randoNumba = Random.Range(0, treasures.treasures.Length);
