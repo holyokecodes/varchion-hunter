@@ -43,7 +43,7 @@ PlayerSettings:
   - logo: {fileID: 10404, guid: 0000000000000000e000000000000000, type: 0}
     duration: 2
   - logo: {fileID: 21300000, guid: b925620f4e9694cfb89f18ee0d73f575, type: 3}
-    duration: 2
+    duration: 4
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1024
@@ -128,7 +128,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.4.0
+  bundleVersion: 1.5.0
   preloadedAssets:
   - {fileID: 431902232768184747, guid: 9c4b83c7512994a0186b3222212f26c5, type: 2}
   metroInputSource: 0
@@ -173,7 +173,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    iPhone: com.holyokecodes.FLLGameAppTest
+    iPhone: com.holyokecodes.VarchionHunter
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 24
@@ -553,7 +553,7 @@ PlayerSettings:
   logObjCUncaughtExceptions: 1
   enableCrashReportAPI: 0
   cameraUsageDescription: Required for augmented reality support.
-  locationUsageDescription: FLL Game app uses you location to see where you are.
+  locationUsageDescription: Varchion Hunter uses you location to see where you are.
   microphoneUsageDescription: 
   switchNetLibKey: 
   switchSocketMemoryPoolSize: 6144
