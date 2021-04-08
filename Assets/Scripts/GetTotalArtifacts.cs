@@ -11,6 +11,11 @@ public class GetTotalArtifacts : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        Check();
+    }
+
+    public void Check()
+    {
         text.text = PlayerPrefs.GetInt("item" + artifactNumber).ToString();
     }
 }

@@ -479,7 +479,8 @@ MonoBehaviour:
   pickUpButton: {fileID: 1302941346}
   treasureObj: {fileID: 0}
   XPText: {fileID: 1795909366}
-  canvasGroup: {fileID: 155275555}
+  XPPopUp: {fileID: 155275555}
+  movePhone: {fileID: 1786795845}
   time: 0
   hasBeenPickedUp: 0
   xpGain: 10

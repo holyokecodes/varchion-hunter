@@ -66,8 +66,7 @@ public class LoadTreasure : MonoBehaviour
             {
                 ARPlane arPlane = args.added[0];
                 treasureObj = Instantiate(treasurePrefab, arPlane.transform.position, Quaternion.identity);
-                StartCoroutine(FadeLoadingScreen(0, 0.5f, movePhone));
-                treasureName.text = treasureNameStr;
+                StartCoroutine(FadeLoadingScreen(0, 1, movePhone));
             }
         }
     }

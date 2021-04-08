@@ -291,6 +291,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31763821}
   m_CullTransparentMesh: 0
+--- !u!114 &65065558 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7303020771278148309, guid: 80f63a58e15324a13962e59200d9407e,
+    type: 3}
+  m_PrefabInstance: {fileID: 548209074}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeac4474b50b6498d8bab8a7502979de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &137357532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1229,6 +1241,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   digSiteGenerator: {fileID: 0}
+  loadXP: {fileID: 0}
+  getTotalArtifacts: []
 --- !u!1001 &548209074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1239,7 +1253,7 @@ PrefabInstance:
     - target: {fileID: 7303020770471286380, guid: 80f63a58e15324a13962e59200d9407e,
         type: 3}
       propertyPath: m_Text
-      value: Electroplated Silver
+      value: Varchion Ore
       objectReference: {fileID: 0}
     - target: {fileID: 7303020771278148309, guid: 80f63a58e15324a13962e59200d9407e,
         type: 3}
@@ -1364,6 +1378,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 548209074}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &556815035 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7303020771278148309, guid: 80f63a58e15324a13962e59200d9407e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1726184849}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeac4474b50b6498d8bab8a7502979de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &560681972
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1374,7 +1400,7 @@ PrefabInstance:
     - target: {fileID: 7303020770471286380, guid: 80f63a58e15324a13962e59200d9407e,
         type: 3}
       propertyPath: m_Text
-      value: Bust
+      value: Bucket
       objectReference: {fileID: 0}
     - target: {fileID: 7303020771278148309, guid: 80f63a58e15324a13962e59200d9407e,
         type: 3}
@@ -1649,6 +1675,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 731921258}
   m_CullTransparentMesh: 0
+--- !u!114 &989057131 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7303020771278148309, guid: 80f63a58e15324a13962e59200d9407e,
+    type: 3}
+  m_PrefabInstance: {fileID: 560681972}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeac4474b50b6498d8bab8a7502979de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1047007683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2424,6 +2462,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   digSiteGenerator: {fileID: 1094528993850014}
+  loadXP: {fileID: 1714277189}
+  getTotalArtifacts:
+  - {fileID: 1996305984}
+  - {fileID: 556815035}
+  - {fileID: 989057131}
+  - {fileID: 1521428117}
+  - {fileID: 65065558}
 --- !u!1001 &1300354231
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2949,6 +2994,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1521428117 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7303020771278148309, guid: 80f63a58e15324a13962e59200d9407e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1546483756}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeac4474b50b6498d8bab8a7502979de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1546483756
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2959,7 +3016,7 @@ PrefabInstance:
     - target: {fileID: 7303020770471286380, guid: 80f63a58e15324a13962e59200d9407e,
         type: 3}
       propertyPath: m_Text
-      value: Pottery Shard
+      value: Varchion Teleportation Staff
       objectReference: {fileID: 0}
     - target: {fileID: 7303020771278148309, guid: 80f63a58e15324a13962e59200d9407e,
         type: 3}
@@ -3367,7 +3424,7 @@ PrefabInstance:
     - target: {fileID: 7303020770471286380, guid: 80f63a58e15324a13962e59200d9407e,
         type: 3}
       propertyPath: m_Text
-      value: Knife
+      value: Clay Pot
       objectReference: {fileID: 0}
     - target: {fileID: 7303020771278148309, guid: 80f63a58e15324a13962e59200d9407e,
         type: 3}
@@ -4238,6 +4295,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1982791486}
   m_CullTransparentMesh: 0
+--- !u!114 &1996305984 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7303020771278148309, guid: 80f63a58e15324a13962e59200d9407e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1868717927}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeac4474b50b6498d8bab8a7502979de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &2052856863 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8025170607688380415, guid: 05d7a4ca1ace04f5ab50c43e36e303a6,
@@ -4367,8 +4436,8 @@ MonoBehaviour:
   treasures: {fileID: 11400000, guid: f84c1dc5d635743a8a84c3dc107c620f, type: 2}
   doOverrideValue: 0
   overrideValue: 2
-  maxDistance: 10
-  minDistance: 1
+  maxDistance: 300
+  minDistance: 50
 --- !u!114 &1094528993850015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4389,6 +4458,7 @@ MonoBehaviour:
     y: 0
   ARButton: {fileID: 2090097231}
   distanceForAR: 0.0001
+  overrideAR: 1
 --- !u!1 &1150654721006899
 GameObject:
   m_ObjectHideFlags: 0

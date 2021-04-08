@@ -10,7 +10,12 @@ public class LoadXP : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Check();
+    }
+
+    public void Check()
+    {
         xpText.text = PlayerPrefs.GetInt("xp") + " XP";
     }
-    
+
 }
