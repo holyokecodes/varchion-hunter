@@ -127,16 +127,17 @@ public class DigSiteGenerator : MonoBehaviour
         currentLong = (float) new Vector2d(currentLat, currentLong).y;
 
         Vector2d latLongChange = new Vector2d(Random.Range(minDistance, maxDistance), Random.Range(minDistance, maxDistance));
-        Vector2 isNegative = new Vector2(Random.Range(0, 1), Random.Range(0, 1));
+        Vector2 isNegative = new Vector2(Random.Range(0, 2), Random.Range(0, 2));
 
         if (isNegative.x == 0) latLongChange = new Vector2d(latLongChange.x * -1, latLongChange.y);
         if (isNegative.y == 0) latLongChange = new Vector2d(latLongChange.x, latLongChange.y * -1);
 
-        print(latLongChange);
+        //print(latLongChange);
+        //print(isNegative);
 
         latLongChange = Conversions.MetersToLatLon(latLongChange);
 
-        print(latLongChange);
+        //print(latLongChange);
 
         float latChange = (float) latLongChange.x;
         float longChange = (float) latLongChange.y;
