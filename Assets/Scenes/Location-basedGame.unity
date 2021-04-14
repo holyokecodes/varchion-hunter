@@ -4512,7 +4512,7 @@ MonoBehaviour:
     y: 0
   ARButton: {fileID: 2090097231}
   distanceForAR: 0.0001
-  overrideAR: 1
+  overrideAR: 0
 --- !u!1 &1150654721006899
 GameObject:
   m_ObjectHideFlags: 0
