@@ -31,24 +31,15 @@ public class LoadTreasure : MonoBehaviour
     void Start()
     {
         //string treasure = PlayerPrefs.GetString("treasure");
-        int treasure = PlayerPrefs.GetInt("treasure");
-        Debug.Log("Treasure ID: " + treasure);
+        itemNumber = PlayerPrefs.GetInt("treasure");
+        Debug.Log("Treasure ID: " + itemNumber);
 
         arPlaneManager.planesChanged += PlanesChanged;
 
-        //string treasure = PlayerPrefs.GetString("treasure");
-        
-        /*for (int i = 0; i < treasures.treasures.Length; i++)
-        {
-            if (treasures.treasures[i].ID == treasure)
-            {*/
-                treasurePrefab = treasures.treasures[treasure].prefab;
-                /*Debug.Log(treasures.treasures[i].displayName);
-                /*treasureNameStr = treasures.treasures[i].displayName;
-                treasureName.text = treasureNameStr;
-            }
-        }*/
-        //Instantiate(treasureObj, Vector3.zero, Quaternion.identity);
+        treasurePrefab = treasures.treasures[itemNumber].prefab;
+        Debug.Log(treasures.treasures[itemNumber].displayName);
+        treasureNameStr = treasures.treasures[itemNumber].displayName;
+        treasureName.text = treasureNameStr;
     }
 
     void Update()
@@ -73,13 +64,11 @@ public class LoadTreasure : MonoBehaviour
 
     public void CollectTreasure()
     {
-        int treasure = PlayerPrefs.GetInt("treasure");
-
         PlayerPrefs.SetInt("xp", PlayerPrefs.GetInt("xp")+xpGain);
         XPText.text = xpGain + " xp gained!";
 
         PlayerPrefs.SetInt("collected", 1);
-        PlayerPrefs.SetInt("item" + treasure, PlayerPrefs.GetInt("item" + treasure) + 1);
+        PlayerPrefs.SetInt("item" + itemNumber, PlayerPrefs.GetInt("item" + itemNumber) + 1);
 
         Destroy(treasureObj);
         Destroy(pickUpButton);

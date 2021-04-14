@@ -33,10 +33,9 @@ public class DistanceChecker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        min = 0.0005f;
-        
-
         Vector2d currLoc = _locationProvider.CurrentLocation.LatitudeLongitude;
+
+        if (digSites.digSites.Length > 1) min = Vector2d.Distance(digSites.digSites[0].latLong, currLoc);
 
         if (digSites.digSites.Length == 20 && !currLoc.Equals(Vector2d.zero) && _locationProvider.CurrentLocation.IsLocationServiceEnabled)
         {
@@ -53,7 +52,7 @@ public class DistanceChecker : MonoBehaviour
             }
         }
 
-        if (min < distanceForAR || overrideAR)
+        if ((min < distanceForAR || overrideAR) && digSites.digSites.Length > 1)
         {
             ARButton.SetActive(true);
             PlayerPrefs.SetInt("treasure", minTreasure);
