@@ -46,6 +46,9 @@ public class DigSiteGenerator : MonoBehaviour
     [SerializeField]
     private float minDistance = 100;
 
+    [SerializeField]
+    private AnimationCurve CURVE;
+
     void Start()
     {
 
