@@ -355,4 +355,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pivot: {fileID: 3832887045622349392}
-  icon: {fileID: 2568645702528082635}
+  image: {fileID: 2568645702528082635}
+  line: {fileID: 3953019769647203409}

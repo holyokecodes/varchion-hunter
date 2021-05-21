@@ -9,6 +9,11 @@ public class DigSite
     public Vector2d latLong;
 
     public int treasureID;
-    /*public string name = "treasure";
-    public Sprite icon;*/
+    public enum stateTypes
+    {
+        future,
+        current,
+        past
+    }
+    public stateTypes state = stateTypes.current;
 }

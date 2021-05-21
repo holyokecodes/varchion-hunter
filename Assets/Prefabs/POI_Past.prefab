@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 8678651520658563964}
   - component: {fileID: 9073535800651379605}
   m_Layer: 0
-  m_Name: POI
+  m_Name: POI_Past
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -355,4 +355,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pivot: {fileID: 3832887045622349392}
-  icon: {fileID: 2568645702528082635}
+  image: {fileID: 2568645702528082635}
+  line: {fileID: 3953019769647203409}

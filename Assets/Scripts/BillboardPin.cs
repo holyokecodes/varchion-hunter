@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class BillboardPin : MonoBehaviour
 {
     public Transform pivot;
-    public Image icon;
+    public Image image;
+    public LineRenderer line;
 
     // Update is called once per frame
     void Update()

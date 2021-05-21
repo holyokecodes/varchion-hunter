@@ -101,7 +101,7 @@ public class DigSiteGenerator : MonoBehaviour
                 var location = digSites[i].latLong;
                 spawnedObject.transform.localPosition = _map.GeoToWorldPosition(location, true);
                 spawnedObject.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
-                spawnedObject.GetComponent<BillboardPin>().icon.sprite = treasures.treasures[digSites[i].treasureID].icon;
+                spawnedObject.GetComponent<BillboardPin>().image.sprite = treasures.treasures[digSites[i].treasureID].icon;
             }
         }
     }
