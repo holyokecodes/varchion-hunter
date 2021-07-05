@@ -6,7 +6,7 @@ using Mapbox.Utils;
 
 public class DistanceChecker : MonoBehaviour
 {
-    public DigSiteGenerator digSites;
+    public GenerateObjects digSites;
 
     private AbstractLocationProvider _locationProvider = null;
 

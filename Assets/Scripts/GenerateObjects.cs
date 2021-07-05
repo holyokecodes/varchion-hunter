@@ -6,19 +6,15 @@ using Mapbox.Unity.Utilities;
 using Mapbox.Utils;
 using Mapbox.Unity.Map;
 
-public class DigSiteGenerator : MonoBehaviour
+public class GenerateObjects : MonoBehaviour
 {
-    [SerializeField]
-    AbstractMap _map; //The map
+    [SerializeField]AbstractMap _map; //The map
 
-    [SerializeField]
-    Vector2d[] _locations;
+    [SerializeField]Vector2d[] _locations;
 
-    [SerializeField]
-    float _spawnScale = 4f; //The scale at which to spawn the prefabs
+    [SerializeField]float _spawnScale = 4f; //The scale at which to spawn the prefabs
 
-    [SerializeField]
-    GameObject _markerPrefab; // The actuall prefab
+    [SerializeField]GameObject _markerPrefab; // The actuall prefab
 
     List<GameObject> _spawnedObjects; //The objects that have been spawned
 
@@ -31,8 +27,7 @@ public class DigSiteGenerator : MonoBehaviour
 
     bool hasGeneratedPoints = false;
 
-    [SerializeField]
-    bool loadDigSites = true;
+    [SerializeField]bool loadDigSites = true;
 
     public DistanceChecker distanceChecker;
 
@@ -41,13 +36,12 @@ public class DigSiteGenerator : MonoBehaviour
     public bool doOverrideValue;
     public int overrideValue;
 
-    [SerializeField]
-    private float maxDistance = 600;
-    [SerializeField]
-    private float minDistance = 100;
+    [SerializeField] private float maxDistance = 600;
+    [SerializeField] private float minDistance = 100;
 
-    [SerializeField]
-    private AnimationCurve CURVE;
+    [SerializeField] private AnimationCurve CURVE;
+
+    [SerializeField] private QuestManager questManager;
 
     void Start()
     {
@@ -165,5 +159,13 @@ public class DigSiteGenerator : MonoBehaviour
         digSites[digSiteNumber] = currectDigSite;
 
         SaveAndLoad.SaveDigSites(digSites);
+    }
+
+    public void generateQuests()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            questManager.quests.Add(new Quest());
+        }
     }
 }

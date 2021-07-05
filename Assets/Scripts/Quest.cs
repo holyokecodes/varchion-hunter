@@ -5,12 +5,18 @@ using UnityEngine;
 [System.Serializable]
 public class Quest
 {
-    [SerializeField]
-    public string questName;
+    [SerializeField] public string questName;
 
-    [SerializeField]
-    public DigSite[] digsites;
+    public enum questTypes
+    {
+        CollectType,
+        CollectNumber
+    }
 
-    [SerializeField]
-    public int currentDigsite;
+    [SerializeField] public questTypes questType;
+
+    [SerializeField] public int treasureType;
+    [SerializeField] public int number;
+
+    [SerializeField] public bool completed;
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ClearPlayerPrefs : MonoBehaviour
 {
     [SerializeField]
-    private DigSiteGenerator digSiteGenerator;
+    private GenerateObjects digSiteGenerator;
     [SerializeField]
     private LoadXP loadXP;
     [SerializeField]
