@@ -165,7 +165,17 @@ public class GenerateObjects : MonoBehaviour
     {
         for (int i = 0; i < 5; i++)
         {
-            questManager.quests.Add(new Quest());
+            Quest.questTypes type;
+            int randInt = Random.Range(0, 2);
+            print(randInt);
+            if (randInt == 0)
+            {
+                type = Quest.questTypes.CollectType;
+            } else
+            {
+                type = Quest.questTypes.CollectNumber;
+            }
+            questManager.quests.Add(new Quest(type, Random.Range(0, treasures.treasures.Length), Random.Range(1, 6)));
         }
     }
 }

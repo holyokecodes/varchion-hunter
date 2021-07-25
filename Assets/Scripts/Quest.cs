@@ -19,4 +19,11 @@ public class Quest
     [SerializeField] public int number;
 
     [SerializeField] public bool completed;
+
+    public Quest(questTypes questTypeParam, int treasureTypeParam, int numberParam)
+    {
+        questType = questTypeParam;
+        treasureType = treasureTypeParam;
+        number = numberParam;
+    }
 }

@@ -7,7 +7,7 @@ public static class SaveAndLoad
     public static void SaveDigSites(DigSite[] digSites) {
         // Create file and setup for writing
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/save.dat";
+        string path = Application.persistentDataPath + "/digsites.dat";
         FileStream stream = new FileStream(path, FileMode.Create);
         
         // Save DataStore as contents of the file
@@ -18,7 +18,7 @@ public static class SaveAndLoad
     
     public static DigSite[] LoadDigSites() {
         // Get file from storage and check if it exists
-        string path = Application.persistentDataPath + "/save.dat";
+        string path = Application.persistentDataPath + "/digsites.dat";
         if (File.Exists(path))
         {
             // If it does exist turn the serialized data back into our DataStore
