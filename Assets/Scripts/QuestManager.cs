@@ -15,6 +15,9 @@ public class QuestManager : MonoBehaviour
     [SerializeField] private Transform scrollView;
     [SerializeField] public GridLayoutGroup questGrid;
 
+    [SerializeField] private TreasureList treasures;
+    [SerializeField] private int inventory;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -43,18 +46,26 @@ public class QuestManager : MonoBehaviour
             switch (quests[i].questType)
             {
                 case Quest.questTypes.CollectNumber:
-                    done = checkNumItems(quests[i].number);
+                    done = checkNumItems() >= quests[i].number;
+                    questInfos[i].progress = checkNumItems();
                     break;
                 case Quest.questTypes.CollectType:
                     done = PlayerPrefs.GetInt("item" + quests[i].treasureType) >= quests[i].number;
+                    questInfos[i].progress = PlayerPrefs.GetInt("item" + quests[i].treasureType);
                     break;
             }
 
         }
     }
 
-    public bool checkNumItems(int itemID)
+    public int checkNumItems()
     {
-        return true;
+        inventory = 0;
+        for (int i = 0; i < treasures.treasures.Length; i++)
+        {
+            inventory += PlayerPrefs.GetInt("item" + i);
+        }
+
+        return inventory;
     }
 }

@@ -388,6 +388,8 @@ MonoBehaviour:
     type: 3}
   scrollView: {fileID: 1328855585}
   questGrid: {fileID: 1328855586}
+  treasures: {fileID: 11400000, guid: f84c1dc5d635743a8a84c3dc107c620f, type: 2}
+  inventory: 0
 --- !u!114 &65065558 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7303020771278148309, guid: 80f63a58e15324a13962e59200d9407e,
@@ -5602,7 +5604,7 @@ MonoBehaviour:
     y: 0
   ARButton: {fileID: 2090097231}
   distanceForAR: 0.0001
-  overrideAR: 0
+  overrideAR: 1
 --- !u!1 &1150654721006899
 GameObject:
   m_ObjectHideFlags: 0
